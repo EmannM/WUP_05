@@ -10,6 +10,13 @@ require(tidyverse)
 require(tigerstats)
 triUmp <-read.csv(file="triUmpsal.csv",header=TRUE)
 ```
+```{r echo=F}
+triUmp$treatment <- as.factor(triUmp$treatment)
+triUmp$infected <- as.factor(triUmp$infected)
+triUmp$LGBTQ <- as.factor(triUmp$LGBTQ)
+triUmp$DrugUser <- as.factor(triUmp$DrugUser)
+triUmp$gender <- as.factor(triUmp$gender)
+```
 
 # Introduction
 
@@ -17,7 +24,7 @@ triUmp <-read.csv(file="triUmpsal.csv",header=TRUE)
   
 A new  preventative aides drug (triUmpsal) is under test in clinical trials. Consider only the females, does this drug seem effective?  Hint - use dplyr to obtain that subpopulation with the filter command.
   
-We are trying to show whether or not triUmpsal, a new drug that is intended to prevent the contraction of AIDS, is effective in females. The data we will be using comes from the triUmp dataset. We will be attempting to answer this research question: Is triUmpsal effective in preventing females from contracting AIDS?
+In this report, we will be trying to show whether or not triUmpsal, a new drug that is intended to prevent the contraction of AIDS, is effective in females. The data we will be using comes from the triUmp data set, focusing mainly on the factor variables "treatment," "infected," and "gender" (the "F" level). We will be attempting to answer this research question: Is triUmpsal effective in preventing females from contracting AIDS?
   
 # Methods
 
