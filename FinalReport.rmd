@@ -10,7 +10,7 @@ require(tidyverse)
 require(tigerstats)
 triUmp <-read.csv(file="triUmpsal.csv",header=TRUE)
 ```
-```{r echo=F}
+```{r echo=FALSE}
 triUmp$treatment <- as.factor(triUmp$treatment)
 triUmp$infected <- as.factor(triUmp$infected)
 triUmp$LGBTQ <- as.factor(triUmp$LGBTQ)
@@ -29,7 +29,9 @@ In this report, we will be trying to show whether or not triUmpsal, a new drug t
 # Methods
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method. Discuss what data manipulations may be needed for example subsetting or other binning procedures and what sort of graphical displays and inferential tools will be used!-->
-
+  
+We will be conducting variable analysis via the graphical method of a bar plot and the numerical method of a summary (mean, minimum, standard deviation, etc.) of the data. We will need the data manipulation of filtering to retrieve only the females from the "gender" variable. The inferential tools of the chi-squared and Fisher's exact test will also be utilized to help finalize our answer to the research question.
+  
 # Results
 
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
