@@ -30,7 +30,7 @@ In this report, we will be trying to show whether or not triUmpsal, a new drug t
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method. Discuss what data manipulations may be needed for example subsetting or other binning procedures and what sort of graphical displays and inferential tools will be used!-->
   
-We will be conducting a variable analysis via the graphical method of a bar plot and the numerical method of a summary (mean, minimum, standard deviation, etc.) of the data. We will need the data manipulation tool called "filter" from the package dplyr to retrieve only the females from the "gender" variable and see how the drug has worked for them. The inferential tools of the chi-squared and Fisher's exact test will also be utilized to help finalize our answer to the research question.
+We will be conducting a variable analysis via the graphical method of a bar plot and the numerical method of percent tables of the data. We will need the data manipulation tool called "filter" from the package dplyr to retrieve only the females from the "gender" variable and see how the drug has worked for them. The inferential tools of the chi-squared and Fisher's exact test will also be utilized to help finalize our answer to the research question.
   
 ```{r}
 females <- filter(triUmp, gender == "F")
@@ -64,13 +64,23 @@ rowPerc(table1)
 colPerc(table1)
 ```
   
-The first table above shows that much more than half - 58.82% - of the females who became infected with AIDS took the triUmpsal drug, a number that surpasses the 41.18% of infected females who took the placebo. These amounts are reflected in the second table, which shows that more infections occurred in females who took the drug - 3.69% - than in females who took the placebo - 2.42%. Once again, we are seeing evidence that shows the drug is much less effective than it should be.
+The first table above shows that much more than half (58.82%) of the females who became infected with AIDS took the triUmpsal drug, a number that surpasses the 41.18% of infected females who took the placebo. These amounts are reflected in the second table, which shows that more infections occurred in females who took the drug (3.69%) than in females who took the placebo (2.42%). Once again, we are seeing evidence that shows the drug is much less effective than it should be.
   
 ## Inferential Results
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
-
-
+  
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+  
+The null hypothesis for our tests is: the triUmpsal drug is effective for preventing AIDS in females, while the alternative hypothesis is: the triUmpsal drug is not effective for preventing AIDS in females. The chi-squared test above shows the p-value of 0.0001, a tiny value that represents the chance we will receive the same results just obtained if the null hypothesis is true. Because of this, we reject the null hypothesis in favor of the alternative: the triUmpsal drug is not effective for preventing AIDS in females. Fisher's exact test supports this decision, showing an odds ratio of 1.543902, which means that the odds of a female getting AIDS after receiving the drug is 1/2 times greater than the odds of a female getting AIDS after receiving the placebo.
+  
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+  
+
+  
