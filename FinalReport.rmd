@@ -82,5 +82,5 @@ The null hypothesis for our tests is: the triUmpsal drug is effective for preven
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
   
-
+In conclusion, we filtered the females from the "gender" variable and observed the effectiveness of the drug on this subpopulation of the data. After this, we have found overwhelming evidence that the triUmpsal drug is not effective in preventing females from contracting AIDS.
   
