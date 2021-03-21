@@ -30,7 +30,11 @@ In this report, we will be trying to show whether or not triUmpsal, a new drug t
 
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method. Discuss what data manipulations may be needed for example subsetting or other binning procedures and what sort of graphical displays and inferential tools will be used!-->
   
-We will be conducting variable analysis via the graphical method of a bar plot and the numerical method of a summary (mean, minimum, standard deviation, etc.) of the data. We will need the data manipulation of filtering to retrieve only the females from the "gender" variable. The inferential tools of the chi-squared and Fisher's exact test will also be utilized to help finalize our answer to the research question.
+We will be conducting a variable analysis via the graphical method of a bar plot and the numerical method of a summary (mean, minimum, standard deviation, etc.) of the data. We will need the data manipulation tool called "filter" from the package dplyr to retrieve only the females from the "gender" variable and see how the drug has worked for them. The inferential tools of the chi-squared and Fisher's exact test will also be utilized to help finalize our answer to the research question.
+  
+```{r}
+females <- filter(triUmp, gender == "F")
+```
   
 # Results
 
@@ -41,7 +45,15 @@ We will be conducting variable analysis via the graphical method of a bar plot a
 ### Graphical Descriptive Results
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question. Bottom line is to explain the features of the graph that are relevant to conforming or departing to what is expected by your null hypothesis !-->
+  
+```{r}
+barchartGC(~infected + treatment,data=females)
+barchartGC(~infected + treatment,data=females, type="percent")
 
+```
+  
+The bar plot above shows that, of all the females included in this clinical trial who got infected with AIDS, about 60% had received the triUmpsal drug and just over 40% had received the placebo. In other words, the drug seems to be increasing the likelihood that a female will get infected with the disease!
+  
 ### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
